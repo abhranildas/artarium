@@ -1,0 +1,31 @@
+{% extends "templates/base.html" %}
+{% block title %}Artarium: About Us{% endblock %}
+{% block description %}Photography and art gallery.{% endblock %}
+{% block url %}artarium.in/about{% endblock %}
+{% block keywords %}artarium photography art buy view gallery photos about{% endblock %}
+{% block artarium_logo %}<a href="/"><img onload="headerappear()" alt="Artarium" src="img/artarium-logo.png"></a>{% endblock %}
+{% block css2 %}
+        <link rel="stylesheet" type="text/css" href="gallery.css"/>
+        <link rel="stylesheet" type="text/css" href="artist.css"/>
+{% endblock %}
+{% block body_onload %}{% endblock %}
+{% block gallery_menu_display %}display:none;opacity:0{% endblock %}
+{% block artist_menu_display %}display:none;opacity:0{% endblock %}
+
+{% block content %}
+<div id="gallery-main-title">
+                                    <div id="gallery-main-name">About Us</div>
+                                </div>
+															<div id="currpage">
+								<div id="fadetop"></div>
+                               <p class="section-header">Rajarshi Roychowdhury</p>
+                               <p>Rajarshi is a graduate student at the University of Massachusetts at Amherst, USA. Passionate about photography, he loves to hike the New England trails and shoot landscapes when he is not working with climate models in his lab.</p>
+                               <p>Abhranil Das</p>
+                               <p>Abhranil is a graduate student of Physics at the University of Texas at Austin, USA. He keeps himself busy with a myriad range of hobbies, some of which are drumming, photography and blogging.</p>
+							   <p id='credit-buttons'>
+								<img src="img/google-app-api.png">
+								<img src="img/python-powered.svg">
+								</p>
+																<div id="fadebottom"></div>
+							</div>								   
+{% endblock content %}

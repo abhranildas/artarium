@@ -1,0 +1,35 @@
+{% extends "templates/gallery.html" %}
+{% block gallery_mode %}
+
+{# grid mode #}
+<div id = "gallery-grid">
+{% for image in images %}		
+        <span style="cursor:pointer" onclick="changegallerymode('gallery-filmstrip',{{ images.index(image)+1 }})">
+<div class="gallery-preview" onmouseover="raise({{ images.index(image) }})" onmouseout="lower({{ images.index(image) }})" id="gal{{ images.index(image) }}">
+                                            <div class="gallery-preview-img" id="gal-img{{ images.index(image) }}">
+                                                <img onload="galappear('gal{{ images.index(image) }}', '140px')" src="galleries/{{ gallerykey }}/{{ image[0] }}.jpg">
+                                            </div>                                            
+                                        </div>
+                                    </span>
+{% endfor %}
+</div>
+{# end grid mode #}
+
+{# filmstrip mode #}
+
+<div id="gallery-filmstrip">
+<div class="gallery">
+                                    <div class="gallery-photo" id="gallery-main-photo">
+                                        <img id="loading" src="img/loading.gif">
+                                        <img id="gallery-main-photo-photo" name='photo'>
+                                    </div>
+                                </div>
+                                <div id="gallery-bottom-right">
+                                    
+                                </div>
+</div>
+{# end filmstrip mode #}
+
+<div id="lightbox"></div>
+
+{% endblock gallery_mode %}

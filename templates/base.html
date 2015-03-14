@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <meta name="google-site-verification" content="8MGmkA-ouiFkw3pTcCCvdRj5_qp9DGOzFIzlAfnqUX8" />
+        <meta name="description" content="{% block description %}{% endblock %}"/>
+        <meta name="keywords" content="{{ self.keywords() }}"/>
+        <meta name="author" content="Abhranil Das and Rajarshi Roychowdhury"/>
+        <meta property="og:title" content="{{ self.title() }}"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="{% block url %}{% endblock %}"/>
+        <meta property="og:image" content="http://www.artarium.in/img/artarium-icon.png"/>
+        <meta property="og:site_name" content="{{ self.title() }}"/>
+        <meta property="og:description" content="{{ self.description() }}"/>
+		<link rel="stylesheet" type="text/css" href="reset.css"/>
+        <link rel="stylesheet" type="text/css" href="default.css"/>{% block css2 %}{% endblock %}
+        <link href='http://fonts.googleapis.com/css?family=Terminal+Dosis:400,300,200|Open+Sans:400italic,400,300' rel='stylesheet' type='text/css'>
+        <link rel="icon" href="img/artarium-icon.png"/>
+        <script type="text/javascript" src ="fade.js"></script>
+		<script type="text/javascript">
+		function raise(i)
+		{
+			document.getElementById('gal-img'+i).style.boxShadow= "0px 5px 15px 2px #777";
+			document.getElementById('gallery-footer-left').style.opacity=0; /*first set opacity to 0 */
+			setTimeout(function () 
+			{
+				document.getElementById('gallery-main-caption').innerHTML=captions[i]; /*when opacity transitions to 0, change caption */
+				setTimeout(function () 
+				{
+					document.getElementById('gallery-footer-left').style.opacity=1; /*then set opacity to 1 again*/
+				}, 200);
+			}, 200);
+		}
+
+		function lower(i)
+		{
+			document.getElementById('gal-img'+i).style.boxShadow= "0px 0px 10px #888";
+		}
+		</script>
+        <script type="text/javascript" src ="misc.js"></script>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-26903975-1']);
+            _gaq.push(['_setDomainName', 'artarium.in']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+        </script>
+    </head>
+    <body {% block body_onload %}{% endblock %}>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=282191175154199";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		<table id="table-centering">
+			<tr>
+				<td style="text-align: center; vertical-align: middle;">
+					<div id="content">
+						<div id="header">
+							{% block artarium_logo %}{% endblock %} &#x00B7;  photography and art gallery
+							<div id="fb-like">
+							<!--<div class="fb-like" data-href="http://www.artarium.in" data-send="false" data-layout="button_count" data-width="45" data-show-faces="false"></div>-->
+							</div>
+						</div>
+						<div id="box">
+							<div id="menu">
+								<ul>
+									<li>
+										<a href="javascript:void(0)" onclick="togglemenu('gallery-menu')">Galleries</a>
+										<ul id='gallery-menu' style="{% block gallery_menu_display %}{% endblock %}">
+											{% for gallery in galleries %}
+											{% if gallery.this==True %}
+											<li style="color:black">{{ gallery.name }}</li>
+											{% else %}
+											<li><a href="/{{ gallery.key }}">{{ gallery.name }}</a></li>
+											{% endif %}
+											{% endfor %}
+										</ul>
+									</li>
+									<li>
+										<a href="javascript:void(0)" onclick="togglemenu('artist-menu')">Artists</a>
+										<ul id='artist-menu' style="{% block artist_menu_display %}{% endblock %}">
+											{% for artist in artists %}
+											{% if artist.this==True %}
+											<li style="color:black">{{ artist.name }}</li>
+											{% else %}
+											<li><a href="/{{ artist.key }}">{{ artist.name }}</a></li>
+											{% endif %}
+											{% endfor %}
+										</ul>
+									</li>
+								</ul>
+							</div>
+							{% block content %}
+							{% endblock content %}
+						</div>
+						<script>setTimeout("fade('box',0,1,1000,new Date().getTime())",2000);</script>
+						<div id="footer">
+							<a href="http://www.facebook.com/artarium.in"><img src="img/facebook.png"> &#x00B7; </a>    
+							<a href="http://twitter.com/Artarium"><img src="img/twitter.png">  &#x00B7; </a>
+							<a href="/about">about &#x00B7; </a>
+							<a href="mailto:contact@artarium.in">contact &#x00B7; </a>
+							<a href="/faq">photographer FAQs &#x00B7; </a>
+							<a href="/terms">T&C/privacy</a>
+						</div>
+					</div>					                    
+				</td>
+			</tr>
+		</table>
+		<script>fade('currpage',0,1,2000, new Date().getTime());</script>
+    </body>
+</html>
+{% endautoescape %}

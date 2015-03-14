@@ -1,0 +1,145 @@
+{% extends "templates/base.html" %}
+{% block title %}Artarium : {{ gallery_name }} | {{ artist_name }}{% endblock %}
+{% block description %}Photography and art gallery.{% endblock %}
+{% block url %}artarium.in/{{ gallerykey }}{% endblock %}
+{% block keywords %}artarium photography art buy view gallery photos {{ gallery_name }} {{ artist_name }}{% endblock %}
+{% block artarium_logo %}<a href="/"><img onload="headerappear()" alt="Artarium" src="img/artarium-logo.png"></a>{% endblock %}
+{% block css2 %}
+        <link rel="stylesheet" type="text/css" href="gallery.css"/>
+{% endblock %}
+{% block body_onload %}onload="imagearray(), next()" onkeydown="keyNavigate(event)"{% endblock %}
+{% block gallery_menu_display %}display:block;opacity:1{% endblock %}
+{% block artist_menu_display %}display:none;opacity:0{% endblock %}
+
+{% block content %}
+								<script type="text/javascript">
+									var currentmode='gallery-grid';
+									
+									var gallerykey="{{ gallerykey }}";
+                                    function keyNavigate(e)
+                                    {
+                                        if(e.which==39)
+                                            pre_next();
+                                        else if (e.which==37)
+                                            pre_previous();
+                                    }
+
+                                    var currentimg=0, imax={{ photo_count }}; //these become global variables so that view changer scripts can manipulate them.
+                                    function imagearray()
+                                    {
+                                        preloader=new Image()
+                                        var j=0;
+                                        captions = new Array();
+                                        captions = {{ captions|safe }};
+										buylinks = {{ buylinks|safe }};
+                                        img_filenames= {{ img_filenames|safe }};
+                                        document.photo.src="galleries/{{ gallerykey }}/"+img_filenames[0]+".jpg";
+                                        document.photo.alt=captions[0];
+                                        document.getElementById('navigation-count').innerHTML="0 of "+(imax);
+										document.getElementById('cart-link').href=buylinks[0];
+                                        for(j=1; j<{{ photo_count }}; j++)
+                                        {
+                                            filename="galleries/{{ gallerykey }}/"+img_filenames[j]+".jpg";
+                                            preloader.src=filename;
+                                        }
+                                    }
+                                    
+                                    var imgHeight;
+                                    var imgWidth;
+                                    var firstImage=true;
+                                    var newImg;
+                                    function resize() //make this work on the img onload in the html instead of next and previous.
+                                    {
+                                        imgHeight = this.height;
+                                        imgWidth = this.width;                                        
+                                        if (imgWidth/imgHeight < 2.25)
+                                        {
+                                            document.photo.style.height='355px';
+                                        }
+                                        else
+                                        {
+                                            document.photo.style.width="95%";
+                                        }
+                                        if (firstImage==true)
+                                        {
+                                            document.photo.style.visibility="visible";
+                                            firstImage=false;
+                                        }                                        
+                                        document.photo.style.opacity=1;
+                                        document.photo.alt=captions[currentimg-1];
+                                        document.getElementById('gallery-main-caption').innerHTML=captions[currentimg-1];
+										document.getElementById('cart-link').href=buylinks[currentimg-1];
+                                        document.getElementById('gallery-footer-left').style.opacity=1;
+                                        document.getElementById('navigation-count').innerHTML=(currentimg)+" of "+(imax);
+                                        return true;
+                                    }
+
+                                    function pre_next()
+                                    {
+                                        document.photo.style.opacity=0;
+                                        document.getElementById('gallery-footer-left').style.opacity=0;
+                                        setTimeout("next()",500);
+                                        return false;
+                                    }
+
+                                    function next()
+                                    {
+                                        if (currentimg==imax)
+                                        {currentimg=0;}
+                                        currentimg++;
+                                        newImg=new Image();
+                                        newImg.src="galleries/{{ gallerykey }}/"+img_filenames[currentimg-1]+".jpg";
+                                        document.photo.src=newImg.src;
+                                        newImg.onload = resize;                                        
+                                    }
+
+                                    function pre_previous()
+                                    {
+                                        document.photo.style.opacity=0;
+                                        document.getElementById('gallery-footer-left').style.opacity=0;
+                                        setTimeout("previous()",500);
+                                        return false;
+                                    }
+
+                                    function previous()
+                                    {
+                                        if (currentimg==1)
+                                        {currentimg=imax+1;}
+                                        currentimg--;
+                                        newImg=new Image();
+                                        newImg.src="galleries/{{ gallerykey }}/"+img_filenames[currentimg-1]+".jpg";
+                                        document.photo.src=newImg.src;
+                                        newImg.onload = resize;                                        
+                                    }
+                                </script>
+							<div id="gallery-main-title">
+								<div id="gallery-main-name">{{ gallery_name }}</div>
+								<div id="gallery-main-artist"><a href="{{ artistkey }}">{{ artist_name }}</a></div>
+							</div>
+							<div id="currpage">
+								<div id="fadetop"></div>								
+                                {% block gallery_mode %}
+								{% endblock gallery_mode %}
+								<div id="fadebottom"></div>
+							</div>
+							<div id="gallery-footer">
+								<div id="gallery-footer-left">
+									<div id="gallery-main-caption"></div>								
+								</div>
+								<div id="gallery-footer-right">
+									<a id="cart-link" href="#" title="Add to cart"><img id="cart-button" src="img/cart-icon.png"></a>
+									<div id="navigation">
+										<div id="navigation-count"></div>
+										<div id="navigation-buttons">
+											<a href="javascript:void(0)" onclick="pre_previous()" title="Previous (&#8592; key)">&#x25C4;</a>
+											<a href="javascript:void(0)" onclick="pre_next()" title= "Next (&#8594; key)">&#x25BA;</a>
+										</div>
+									</div>
+									<div id="view-changer">
+										<a id='gallery-grid-button' href="javascript:void(0)" onclick="changegallerymode('gallery-grid')" title="Grid"><img src="img/gallery-grid.svg"></a>
+										<a id='gallery-filmstrip-button' href="javascript:void(0)" onclick="changegallerymode('gallery-filmstrip')" title="Single"><img src="img/gallery-filmstrip.svg"></a>
+										<a id='gallery-lightbox-button' href="javascript:void(0)" onclick="changegallerymode('gallery-lightbox')" title="Lightbox"><img src="img/gallery-lightbox.svg"></a>
+									</div>
+								</div>
+							</div>
+{% endblock content %}

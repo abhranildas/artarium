@@ -1,0 +1,59 @@
+application: art-arium
+version: dev
+runtime: python27
+api_version: 1
+threadsafe: false
+
+handlers:
+
+- url: /
+  script: main.py
+
+- url: /avishek-roy
+  script: main.py
+
+- url: /timeless-terrains
+  script: main.py
+
+- url: /tejal-akolkar
+  script: main.py
+
+- url: /artwork
+  script: main.py
+
+- url: /rajesh-bhattacharjee
+  script: main.py
+
+- url: /light-on-the-land
+  script: main.py
+
+- url: /abhranil-das
+  script: main.py
+
+- url: /backpackers-diary
+  script: main.py
+
+- url: /about
+  script: main.py
+
+- url: /faq
+  script: main.py
+
+- url: /terms
+  script: main.py
+
+- url: /privacy
+  script: main.py
+
+- url: /
+  static_dir: static
+
+- url: /favicon\.ico
+  static_files: static/img/favicon.ico
+  upload: static/img/favicon\.ico
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
