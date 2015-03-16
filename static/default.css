@@ -68,7 +68,7 @@ body a:hover
 	bottom: 0;
 	right: 0;
 	left: 120px;
-	margin: 15px 15px 37px 15px;
+	margin: 15px 12px 35px 15px;
 	padding: 0px 10px 0px 10px;
 	text-align: justify;
 	#overflow-y: auto; /*change to auto later*/
