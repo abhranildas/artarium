@@ -64,11 +64,11 @@
 	{
 	position:fixed;
 	bottom:10px;
-	left:10px;	{
-
+	left:10px;
 	}
 
 #gallery-main-photo
+	{
 	opacity:1;
 	#transition: opacity 0.5s;
 	#-moz-transition:opacity 0.5s; /* Firefox 4 */
