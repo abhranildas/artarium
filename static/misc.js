@@ -26,6 +26,7 @@ function changegallerymode(tomode,imgnum)
 		document.getElementById(currentmode).style.display='none';
 		if (!imgnum) imgnum=1
 		currentimg=imgnum;	//changing the global variable currentimg of the page that called this script
+		document.getElementById('gallery-footer-left').style.opacity=1;
 		document.getElementById('cart-link').style.visibility='visible';
 		document.getElementById('navigation').style.display='inline';
 		document.photo.src="galleries/"+gallerykey+"/"+img_filenames[imgnum-1]+".jpg";
@@ -37,10 +38,38 @@ function changegallerymode(tomode,imgnum)
 	}
 	else if (currentmode=='gallery-lightbox')
 	{
-		document.getElementById('lightbox').style.opacity=0;
-		setTimeout(function () {document.getElementById('lightbox').style.visibility='hidden';}, 200);
-		document.getElementById('gallery-main-caption').className='';
-		document.getElementById('gallery-footer-right').className='';
+		if (tomode=='gallery-lightbox')
+		{
+			if (!document.getElementById('lightbox-dark'))
+			{
+			    var head  = document.getElementsByTagName('head')[0];
+			    var link  = document.createElement('link');
+			    link.id   = 'lightbox-dark';
+			    link.rel  = 'stylesheet';
+			    link.type = 'text/css';
+			    link.href = 'lightbox-dark.css';
+			    link.media = 'all';
+			    head.appendChild(link);
+			}
+			else
+			{
+				sheet = document.getElementById('lightbox-dark')
+				sheet.parentNode.removeChild(sheet)
+			}
+		}
+		else
+		{
+			document.getElementById('lightbox').style.opacity=0;
+			setTimeout(function () {document.getElementById('lightbox').style.visibility='hidden';}, 200);
+			document.getElementById('gallery-main-photo-photo').className='';
+			document.getElementById('gallery-main-caption').className='';
+			document.getElementById('gallery-footer-right').className='';
+			document.getElementById('gallery-lightbox-button-img').src='img/gallery-lightbox.svg'
+			sheet = document.getElementById('lightbox-dark')
+			if (sheet)
+			sheet.parentNode.removeChild(sheet)
+			document.getElementById('gallery-lightbox-button').title='Lightbox'
+		}
 	}
 	if (tomode=='gallery-grid')
 	{
@@ -48,16 +77,17 @@ function changegallerymode(tomode,imgnum)
 		document.getElementById('navigation').style.display='none';
 		document.getElementById('cart-link').style.visibility='hidden';
 		document.getElementById(tomode).style.display='block';
+		document.getElementById('gallery-footer-left').style.opacity=0;
 	}
 	else if (tomode=='gallery-lightbox')
 	{
 		document.getElementById('lightbox').style.visibility='visible';
 		document.getElementById('lightbox').style.opacity=1;
-		//document.getElementById('currpage').style.overflow='visible';		
 		document.getElementById('gallery-main-caption').className='gallery-main-caption-lightbox';
 		document.getElementById('gallery-footer-right').className='gallery-footer-right-lightbox';
-		//document.photo.style.height='550px';
-		//document.photo.style.marginTop='-10%';
+		document.getElementById('gallery-main-photo-photo').className='lightbox-image';
+		document.getElementById('gallery-lightbox-button-img').src='img/gallery-lightbox-toggle.svg'
+		document.getElementById('gallery-lightbox-button').title='Toggle lightbox colour'
 	}
 	document.getElementById(currentmode+'-button').style.opacity=0.5;
 	document.getElementById(tomode+'-button').style.opacity=1;

@@ -50,8 +50,8 @@
                                     var newImg;
                                     function resize() //make this work on the img onload in the html instead of next and previous.
                                     {
-                                        imgHeight = this.height;
-                                        imgWidth = this.width;                                        
+/*                                        imgHeight = this.height;
+                                        imgWidth = this.width;  */                                      
 /*                                        if (imgWidth/imgHeight < 2.25)
                                         {
                                             document.photo.style.height='355px';
@@ -64,12 +64,15 @@
                                         {
                                             document.photo.style.visibility="visible";
                                             firstImage=false;
-                                        }                                        
+                                        }
+                                        else
+                                        {
+                                            document.getElementById('gallery-footer-left').style.opacity=1;
+                                        }                                      
                                         document.photo.style.opacity=1;
                                         document.photo.alt=captions[currentimg-1];
                                         document.getElementById('gallery-main-caption').innerHTML=captions[currentimg-1];
-										document.getElementById('cart-link').href=buylinks[currentimg-1];
-                                        document.getElementById('gallery-footer-left').style.opacity=1;
+										document.getElementById('cart-link').href=buylinks[currentimg-1];                                        
                                         document.getElementById('navigation-count').innerHTML=(currentimg)+" of "+(imax);
                                         return true;
                                     }
@@ -131,14 +134,14 @@
 									<div id="navigation">
 										<div id="navigation-count"></div>
 										<div id="navigation-buttons">
-											<a href="javascript:void(0)" onclick="pre_previous()" title="Previous (&#8592; key)">&#x25c0;</a>
-											<a href="javascript:void(0)" onclick="pre_next()" title= "Next (&#8594; key)">&#x25b6;</a>
+											<a onclick="pre_previous()" title="Previous (&#8592; key)">&#x25c0;</a>
+											<a onclick="pre_next()" title= "Next (&#8594; key)">&#x25b6;</a>
 										</div>
 									</div>
 									<div id="view-changer">
-										<a id='gallery-grid-button' href="javascript:void(0)" onclick="changegallerymode('gallery-grid')" title="Grid"><img src="img/gallery-grid.svg"></a>
-										<a id='gallery-filmstrip-button' href="javascript:void(0)" onclick="changegallerymode('gallery-filmstrip')" title="Single"><img src="img/gallery-filmstrip.svg"></a>
-										<a id='gallery-lightbox-button' href="javascript:void(0)" onclick="changegallerymode('gallery-lightbox')" title="Lightbox"><img src="img/gallery-lightbox.svg"></a>
+										<a id='gallery-grid-button' onclick="changegallerymode('gallery-grid')" title="Grid" style="opacity:1"><img src="img/gallery-grid.svg"></a>
+										<a id='gallery-filmstrip-button' onclick="changegallerymode('gallery-filmstrip')" title="Single"><img src="img/gallery-filmstrip.svg"></a>
+										<a id='gallery-lightbox-button' onclick="changegallerymode('gallery-lightbox')" title="Lightbox"><img id='gallery-lightbox-button-img' src="img/gallery-lightbox.svg"></a>
 									</div>
 								</div>
 							</div>

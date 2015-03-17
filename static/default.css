@@ -41,7 +41,6 @@ body a:hover
 	box-shadow: 0px 0px 10px #888;
 	border-radius: 5px;
 	position: relative;
-	opacity:0;
 	}
 
 #content
@@ -68,11 +67,11 @@ body a:hover
 	bottom: 0;
 	right: 0;
 	left: 120px;
-	margin: 15px 12px 35px 15px;
-	padding: 0px 10px 0px 10px;
+	margin: 15px 15px 35px 25px;
+	#padding: 0px 10px 0px 10px;
 	text-align: justify;
-	#overflow-y: auto; /*change to auto later*/
-	overflow-x: hidden;
+	overflow-y: auto; /*change to auto later*/
+	#overflow-x: hidden;
 	}
 
 #lightbox {
@@ -85,11 +84,11 @@ body a:hover
 	opacity: 0;
 	z-index: 1;
 	visibility: hidden;
-	transition: opacity 1s;
-	-moz-transition:opacity 1s; /* Firefox 4 */
-	-webkit-transition:opacity 1s; /* Safari and Chrome */
-	-o-transition:opacity 1s; /* Opera */
-	-ms-transition: opacity 1s; /* Explorer 10 */
+	transition: opacity 1s, background-color 1s;
+	-moz-transition: opacity 1s, background-color 1s; /* Firefox 4 */
+	-webkit-transition: opacity 1s, background-color 1s; /* Safari and Chrome */
+	-o-transition: oopacity 1s, background-color 1s; /* Opera */
+	-ms-transition: opacity 1s, background-color 1s; /* Explorer 10 */
 }
 
 #fadetop

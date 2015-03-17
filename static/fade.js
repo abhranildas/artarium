@@ -21,7 +21,7 @@ function fade(eid, initOp, finalOp, TimeToFade, time)
 	setTimeout("fade( '" + eid + "'," + initOp + "," + finalOp + "," + TimeToFade + "," + time + ")", TimeToFade/100);
 }
 
-function fadegallery(i) //not being used; abandoned for galappear
+/*function fadegallery(i) //not being used; abandoned for galappear
 {
 	gal=document.getElementById('gal'+i);
 	if (gal==null)
@@ -34,7 +34,7 @@ function fadegallery(i) //not being used; abandoned for galappear
 	gal.style.opacity=1;
 	i++;
 	setTimeout("fadegallery("+i+")",1000);
-}
+}*/
 
 function galappear(id,size)
 {

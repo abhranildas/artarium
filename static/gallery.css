@@ -88,8 +88,7 @@
 	height:auto;
 	max-width:90%;
 	max-height:90%;
-	border:none;
-	padding:5px;
+	border: solid 5px white;
 	visibility: hidden;
 	position: absolute;
 	z-index:2; /*for being on top of lightbox*/
@@ -101,6 +100,10 @@
 	-ms-transition: opacity 0.5s; /* Explorer 10 */
 	}
 
+.lightbox-image
+	{
+		position:fixed !important;
+	}
 #gallery-menu
 	{
 	display: block;
@@ -132,6 +135,7 @@
 #gallery-footer-left
 	{
 	float:left;
+	opacity:0;
 	#height: 20px;
 	transition: opacity 0.2s;
 	-moz-transition: opacity 0.2s; /* Firefox 4 */
@@ -143,6 +147,11 @@
 	{
 	padding-top:5px;
 	margin-right: 165px;
+	}
+
+#gallery-footer-right img
+	{
+	-webkit-transition : -webkit-filter 1s linear
 	}
 
 .gallery-footer-right-lightbox
@@ -185,8 +194,9 @@
 
 #navigation-buttons a
 	{
-	cursor:pointer;
 	color:black;
+	vertical-align:15%;
+	font-size:.8em;
 	}
 
 #view-changer
@@ -201,24 +211,16 @@
 
 #gallery-footer-right a
 	{
-	opacity: 0.5;
-	transition: opacity 0.5s;
-	-moz-transition: opacity 0.5s; /* Firefox 4 */
-	-webkit-transition: opacity 0.5s; /* Safari and Chrome */
-	-o-transition: opacity 0.5s; /* Opera */
-	-ms-transition: opacity 0.5s; /* Explorer 10 */
+	opacity:0.5;
+	cursor:pointer;
+	transition: opacity 0.5s, color 1s;
+	-moz-transition: opacity 0.5s, color 1s; /* Firefox 4 */
+	-webkit-transition: opacity 0.5s, color 1s; /* Safari and Chrome */
+	-o-transition: opacity 0.5s, color 1s; /* Opera */
+	-ms-transition: opacity 0.5s, color 1s; /* Explorer 10 */
 	}
 
 #gallery-footer-right a:hover
 	{
 	opacity: 1 !important;
-	}
-
-#lightbox-photo-container
-	{
-	position: fixed;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
 	}

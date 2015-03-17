@@ -23,20 +23,15 @@
 		function raise(i)
 		{
 			document.getElementById('gal-img'+i).style.boxShadow= "0px 5px 15px 2px #777";
-			document.getElementById('gallery-footer-left').style.opacity=0; /*first set opacity to 0 */
-			setTimeout(function () 
-			{
-				document.getElementById('gallery-main-caption').innerHTML=captions[i]; /*when opacity transitions to 0, change caption */
-				setTimeout(function () 
-				{
-					document.getElementById('gallery-footer-left').style.opacity=1; /*then set opacity to 1 again*/
-				}, 200);
-			}, 200);
+			document.getElementById('gallery-main-caption').innerHTML=captions[i]; /*when opacity transitions to 0, change caption */
+			document.getElementById('gallery-footer-left').style.opacity=1;
 		}
 
 		function lower(i)
 		{
 			document.getElementById('gal-img'+i).style.boxShadow= "0px 0px 10px #888";
+			if (currentmode=='gallery-grid')
+			document.getElementById('gallery-footer-left').style.opacity=0;
 		}
 		</script>
         <script type="text/javascript" src ="misc.js"></script>
@@ -103,7 +98,7 @@
 							{% block content %}
 							{% endblock content %}
 						</div>
-						<script>setTimeout("fade('box',0,1,1000,new Date().getTime())",2000);</script>
+						<!--<script>setTimeout("fade('box',0,1,1000,new Date().getTime())",2000);</script>-->
 						<div id="footer">
 							<a href="http://www.facebook.com/artarium.in"><img src="img/facebook.png"> &#x00B7; </a>    
 							<a href="http://twitter.com/Artarium"><img src="img/twitter.png">  &#x00B7; </a>
