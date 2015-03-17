@@ -126,10 +126,12 @@
 	{
 	height:20px;
 	text-align: right;
-	margin-left:135px;
 	position: absolute;/*z-index cannot be used with static positioning */
 	bottom: 9px;
-	width: 100%;
+	left:135px;
+	width: -moz-calc(100% - 135px);
+    width: -webkit-calc(100% - 135px);
+    width: calc(100% - 135px);
 	z-index:2;/*for being on top of lightbox*/
 	}
 #gallery-footer-left
@@ -146,7 +148,7 @@
 #gallery-footer-right
 	{
 	padding-top:5px;
-	margin-right: 165px;
+	margin-right: 10px;
 	}
 
 #gallery-footer-right img

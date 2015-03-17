@@ -70,7 +70,7 @@
 							<div id="menu">
 								<ul>
 									<li>
-										<a href="javascript:void(0)" onclick="togglemenu('gallery-menu')">Galleries</a>
+										<a onclick="togglemenu('gallery-menu')">Galleries</a>
 										<ul id='gallery-menu' style="{% block gallery_menu_display %}{% endblock %}">
 											{% for gallery in galleries %}
 											{% if gallery.this==True %}
@@ -82,7 +82,7 @@
 										</ul>
 									</li>
 									<li>
-										<a href="javascript:void(0)" onclick="togglemenu('artist-menu')">Artists</a>
+										<a onclick="togglemenu('artist-menu')">Artists</a>
 										<ul id='artist-menu' style="{% block artist_menu_display %}{% endblock %}">
 											{% for artist in artists %}
 											{% if artist.this==True %}

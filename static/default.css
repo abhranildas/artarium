@@ -93,17 +93,19 @@ body a:hover
 
 #fadetop
 	{
-	width: 100%;
 	height:20px;
 	background: url('img/fadetop.png') repeat-x;
 	position:absolute;
-	margin-left:-36px;
-	visibility: hidden;
+	top: 55px;
+	left: 142px;
+	width: -moz-calc(100% - 155px);
+	width: -webkit-calc(100% - 155px);
+	width: calc(100% - 155px);
+	z-index:1;
 	}
 
 #fadebottom
 	{
-	width: 100%;
 	height:20px;
 	background: url('img/fadebottom.png') repeat-x;
 	position:absolute;
@@ -285,7 +287,6 @@ body a:hover
 	border-right: 1px solid #ddd;
 	text-align: right;
 	margin-bottom: 20px;
-	height:450px;
 	}
 
 #menu ul
