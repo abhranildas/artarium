@@ -1,0 +1,15 @@
+#lightbox {
+	background-color: black;
+}
+
+#navigation-buttons a {
+	color: white;
+}
+
+#gallery-footer-right img {
+	-webkit-filter: invert(100%);  
+}
+
+#loading {
+	-webkit-filter: invert(100%);
+	}
