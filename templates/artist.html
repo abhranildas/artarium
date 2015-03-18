@@ -15,7 +15,7 @@
 							<div id="currpage">
 								<div id="fadetop"></div>
 <div id="artist-left"><img id="artist-photo" alt="{{ artist_name }}" src="artists/{{ artistkey }}.jpg">
-<p class="section-header" id="gallerylink-header">Gallery</p>
+<h3 id="gallerylink-header">Gallery</h3>
 <a href="/{{ gallerykey }}">
                                         <div class="gallery-preview" onmouseover="raise(0)" onmouseout="lower(0)" id="gal0">
                                             <div class="gallery-preview-img" id="gal-img0">
@@ -28,7 +28,7 @@
                                     </a>
 </div>
 
-                                <div class="section-header">{{ artist_name }}</div>								
+                                <h1>{{ artist_name }}</h1>								
                                 <div class="text" id="artist-bio">
                                 {{ bio|safe }}
                                 </div>

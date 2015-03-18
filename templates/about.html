@@ -5,7 +5,6 @@
 {% block keywords %}artarium photography art buy view gallery photos about{% endblock %}
 {% block artarium_logo %}<a href="/"><img onload="headerappear()" alt="Artarium" src="img/artarium-logo.png"></a>{% endblock %}
 {% block css2 %}
-        <link rel="stylesheet" type="text/css" href="gallery.css"/>
         <link rel="stylesheet" type="text/css" href="artist.css"/>
 {% endblock %}
 {% block body_onload %}{% endblock %}
@@ -13,19 +12,21 @@
 {% block artist_menu_display %}display:none;opacity:0{% endblock %}
 
 {% block content %}
-<div id="gallery-main-title">
-                                    <div id="gallery-main-name">About Us</div>
-                                </div>
+                                                                   
 															<div id="currpage">
-								<div id="fadetop"></div>
-                               <p class="section-header">Rajarshi Roychowdhury</p>
-                               <p>Rajarshi is a graduate student at the University of Massachusetts at Amherst, USA. Passionate about photography, he loves to hike the New England trails and shoot landscapes when he is not working with climate models in his lab.</p>
-                               <p>Abhranil Das</p>
-                               <p>Abhranil is a graduate student of Physics at the University of Texas at Austin, USA. He keeps himself busy with a myriad range of hobbies, some of which are drumming, photography and blogging.</p>
+								<h1>About Us</h1> 
+                               <h2>Rajarshi Roychowdhury &#x00B7; <span style="font-size:0.8em">Sales</span></h2>
+                               <span class='text'>
+                               <p>Rajarshi is a PhD student of Earth Sciences at the University of Massachusetts at Amherst, USA. Passionate about photography, he loves to hike the New England trails and shoot landscapes when he is not working with climate models in his lab.</p>
+                           </span>
+                               <h2>Abhranil Das &#x00B7; <span style="font-size:0.8em">Developer</span></h2>
+                               <span class='text'>
+                               	<p>Abhranil is a PhD student of Physics at the University of Texas at Austin, USA. He keeps himself busy with a wide array of hobbies, some of which are drumming, photography and running.</p>
+                               </span>
 							   <p id='credit-buttons'>
-								<img src="img/google-app-api.png">
+								<img src="img/powered-by-gae.png">
 								<img src="img/python-powered.svg">
-								</p>
-																<div id="fadebottom"></div>
+								<img src="img/jinja2.svg">
+								</p>																
 							</div>								   
 {% endblock content %}

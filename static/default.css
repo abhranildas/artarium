@@ -1,7 +1,7 @@
 body
 	{
 	height:100%;
-	font: normal 0.8em 'Open Sans', 'Aroma', sans-serif;
+	font-family: 'Open Sans', 'Aroma', sans-serif;
 	color: grey;
 	#overflow-y: hidden;
 	}
@@ -25,6 +25,40 @@ body a
 body a:hover
 	{
 	color: black;
+	}
+
+.text
+	{
+	#margin-right: 50px;
+	text-align: justify;
+	font-size: 16px;
+	line-height: 1.7;
+	}
+
+.text p
+	{
+	margin-top: 0px;
+	margin-bottom:15px;
+	}
+
+h1
+	{
+	font: 32px 'Terminal Dosis', 'Trebuchet MS', sans-serif;
+	font-weight: 200;
+  	margin-bottom: 10px;
+	}
+
+h2
+	{	
+	font: 25px 'Terminal Dosis', 'Trebuchet MS', sans-serif;
+	font-weight:200;
+	margin: 15px 0 10px 0;
+	}
+
+h3
+	{	
+	font: 23px 'Terminal Dosis', 'Trebuchet MS', sans-serif;
+	font-weight:200;
 	}
 
 .artist-name
@@ -91,32 +125,9 @@ body a:hover
 	-ms-transition: opacity 1s, background-color 1s; /* Explorer 10 */
 }
 
-#fadetop
-	{
-	height:20px;
-	background: url('img/fadetop.png') repeat-x;
-	position:absolute;
-	top: 55px;
-	left: 142px;
-	width: -moz-calc(100% - 155px);
-	width: -webkit-calc(100% - 155px);
-	width: calc(100% - 155px);
-	z-index:1;
-	}
-
-#fadebottom
-	{
-	height:20px;
-	background: url('img/fadebottom.png') repeat-x;
-	position:absolute;
-	#margin-left:-36px;
-	margin-top:-24px;
-	#float: bottom;
-	visibility: hidden;
-	}
-
 #footer
 	{
+	font: 14px 'Open Sans', 'Aroma', sans-serif;
 	text-align:right;
 	padding: 15px 10px 0 0;
 	}
@@ -155,7 +166,7 @@ body a:hover
 
 .gallery-name
 	{
-	font: 1.5em 'Terminal Dosis', 'Trebuchet MS', sans-serif;
+	font: 19.2px 'Terminal Dosis', 'Trebuchet MS', sans-serif;
 	font-weight:400;
 	}
 
@@ -225,7 +236,8 @@ body a:hover
 	height: 140px;
 	width: 140px;
 	box-shadow: 0px 0px 10px #888;
-	padding: 5px;
+	border: 5px solid white;
+	background-size:cover;
 	margin-bottom: 5px;
 	transition: box-shadow 0.5s;
 	-moz-transition: box-shadow 0.5s; /* Firefox 4 */
@@ -243,7 +255,7 @@ body a:hover
 
 #header
 	{
-	font-family: 'Open Sans', 'Aroma', sans-serif;
+	font: 14px 'Open Sans', 'Aroma', sans-serif;
 	margin-bottom: 15px;
 	height: 45px;
 	text-align:left;
@@ -291,7 +303,7 @@ body a:hover
 
 #menu ul
 	{
-	font: 1.8em 'Terminal Dosis', 'Trebuchet MS', sans-serif;
+	font: 23px 'Terminal Dosis', 'Trebuchet MS', sans-serif;
 	font-weight:300;
 	text-transform: uppercase;
 	line-height: 20px;
@@ -365,12 +377,6 @@ body a:hover
 	height: 96%;
 	}
 
-.text
-	{
-	font-size: 1.1em;
-	text-align:center; /*remove this later*/
-	}
-
 #wrapper
 	{
 	height:100%;
@@ -382,11 +388,12 @@ body a:hover
 
 #credit-buttons
 	{
-	text-align:center
+	text-align:center;
+	margin-top:80px;
 	}
 
 #credit-buttons img
 	{
-	height: 6em;
-	display: inline;
+	height: 60px;
+	margin-right: 50px;
 	}

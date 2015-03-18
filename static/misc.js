@@ -24,6 +24,8 @@ function changegallerymode(tomode,imgnum)
 	if (currentmode=='gallery-grid')
 	{
 		document.getElementById(currentmode).style.display='none';
+		document.getElementById('fadetop').style.display='none';
+		document.getElementById('fadebottom').style.display='none';
 		if (!imgnum) imgnum=1
 		currentimg=imgnum;	//changing the global variable currentimg of the page that called this script
 		document.getElementById('gallery-footer-left').style.opacity=1;
@@ -78,6 +80,8 @@ function changegallerymode(tomode,imgnum)
 		document.getElementById('cart-link').style.visibility='hidden';
 		document.getElementById(tomode).style.display='block';
 		document.getElementById('gallery-footer-left').style.opacity=0;
+		document.getElementById('fadetop').style.display='block';
+		document.getElementById('fadebottom').style.display='block';
 	}
 	else if (tomode=='gallery-lightbox')
 	{
