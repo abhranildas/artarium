@@ -1,3 +1,5 @@
+var currentimg=1;
+
 function togglemenu(menuid)
 {
 	var menu=document.getElementById(menuid)
@@ -23,75 +25,58 @@ function changegallerymode(tomode,imgnum)
 {
 	if (currentmode=='gallery-grid')
 	{
-		document.getElementById(currentmode).style.display='none';
-		document.getElementById('fadetop').style.display='none';
-		document.getElementById('fadebottom').style.display='none';
-		if (!imgnum) imgnum=1
-		currentimg=imgnum;	//changing the global variable currentimg of the page that called this script
-		document.getElementById('gallery-footer-left').style.opacity=1;
-		document.getElementById('cart-link').style.visibility='visible';
-		document.getElementById('navigation').style.display='inline';
-		document.photo.src="galleries/"+gallerykey+"/"+img_filenames[imgnum-1]+".jpg";
-		document.photo.alt=captions[imgnum];
-		document.getElementById('gallery-main-caption').innerHTML=captions[imgnum-1];
-		document.getElementById('cart-link').href=buylinks[imgnum-1];
-        document.getElementById('navigation-count').innerHTML=(imgnum)+" of "+(imax);
-		document.getElementById('gallery-filmstrip').style.display='block';
+		$('#grid-css').remove();
+		$('head').append('<link rel="stylesheet" type="text/css" id="single-css" href="gallery-single.css">');
+		$('#gallery-main-caption').css('opacity',1);
 	}
 	else if (currentmode=='gallery-lightbox')
 	{
 		if (tomode=='gallery-lightbox')
 		{
-			if (!document.getElementById('lightbox-dark'))
-			{
-			    var head  = document.getElementsByTagName('head')[0];
-			    var link  = document.createElement('link');
-			    link.id   = 'lightbox-dark';
-			    link.rel  = 'stylesheet';
-			    link.type = 'text/css';
-			    link.href = 'lightbox-dark.css';
-			    link.media = 'all';
-			    head.appendChild(link);
-			}
+			if (!$('#lightbox-dark-css').length)
+				$('head').append('<link rel="stylesheet" type="text/css" id="lightbox-dark-css" href="lightbox-dark.css">');
 			else
-			{
-				sheet = document.getElementById('lightbox-dark')
-				sheet.parentNode.removeChild(sheet)
-			}
+				$('#lightbox-dark-css').remove();
 		}
 		else
 		{
-			document.getElementById('lightbox').style.opacity=0;
-			setTimeout(function () {document.getElementById('lightbox').style.visibility='hidden';}, 200);
-			document.getElementById('gallery-main-photo-photo').className='';
-			document.getElementById('gallery-main-caption').className='';
-			document.getElementById('gallery-footer-right').className='';
-			document.getElementById('gallery-lightbox-button-img').src='img/gallery-lightbox.svg'
-			sheet = document.getElementById('lightbox-dark')
-			if (sheet)
-			sheet.parentNode.removeChild(sheet)
-			document.getElementById('gallery-lightbox-button').title='Lightbox'
+			$('#lightbox-css').remove();
+			$('#lightbox-dark-css').remove();
+			$('#gallery-lightbox-button-img').attr('src','img/gallery-lightbox.svg');
+			$('#gallery-lightbox-button').attr('title','Lightbox');
 		}
 	}
+
 	if (tomode=='gallery-grid')
 	{
-		document.getElementById('gallery-filmstrip').style.display='none';
-		document.getElementById('navigation').style.display='none';
-		document.getElementById('cart-link').style.visibility='hidden';
-		document.getElementById(tomode).style.display='block';
-		document.getElementById('gallery-footer-left').style.opacity=0;
-		document.getElementById('fadetop').style.display='block';
-		document.getElementById('fadebottom').style.display='block';
+		$('#single-css').remove();
+		if (!$('#grid-css').length)
+			$('head').append('<link rel="stylesheet" type="text/css" id="grid-css" href="gallery-grid.css">');
+		$('#gallery-main-caption').css('opacity',0);
+	
+	}
+	else if (tomode=='gallery-single')
+	{
+		if (!$('#single-css').length)
+			$('head').append('<link rel="stylesheet" type="text/css" id="single-css" href="gallery-single.css">');
+		if (!imgnum)
+			imgnum=currentimg;
+		else
+			currentimg=imgnum;	//changing the global variable currentimg of the page that called this script
+		document.photo.src="galleries/"+gallerykey+"/"+img_filenames[imgnum-1]+".jpg";
+		document.photo.alt=captions[imgnum];
+		$('#gallery-main-caption').html(captions[imgnum-1]);
+		$('#cart-link').attr('href',buylinks[imgnum-1]);
+		$('#navigation-count').html((imgnum)+' of '+(imax));
 	}
 	else if (tomode=='gallery-lightbox')
 	{
-		document.getElementById('lightbox').style.visibility='visible';
-		document.getElementById('lightbox').style.opacity=1;
-		document.getElementById('gallery-main-caption').className='gallery-main-caption-lightbox';
-		document.getElementById('gallery-footer-right').className='gallery-footer-right-lightbox';
-		document.getElementById('gallery-main-photo-photo').className='lightbox-image';
-		document.getElementById('gallery-lightbox-button-img').src='img/gallery-lightbox-toggle.svg'
-		document.getElementById('gallery-lightbox-button').title='Toggle lightbox colour'
+		if (!document.getElementById('lightbox-css'))
+		{
+			$('head').append('<link rel="stylesheet" type="text/css" id="lightbox-css" href="gallery-lightbox.css">');
+			$('#gallery-lightbox-button-img').attr('src','img/gallery-lightbox-toggle.svg');
+			$('#gallery-lightbox-button').attr('title','Toggle lightbox colour');
+		}
 	}
 	document.getElementById(currentmode+'-button').style.opacity=0.5;
 	document.getElementById(tomode+'-button').style.opacity=1;

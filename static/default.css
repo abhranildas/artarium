@@ -394,6 +394,6 @@ h3
 
 #credit-buttons img
 	{
-	height: 60px;
-	margin-right: 50px;
+	height: 40px;
+	margin: 0 50px 50px 0;
 	}

@@ -18,20 +18,21 @@
         <link rel="stylesheet" type="text/css" href="default.css"/>{% block css2 %}{% endblock %}
         <link href='http://fonts.googleapis.com/css?family=Terminal+Dosis:400,300,200|Open+Sans:400italic,400,300' rel='stylesheet' type='text/css'>
         <link rel="icon" href="img/artarium-icon.png"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script type="text/javascript" src ="fade.js"></script>
 		<script type="text/javascript">
 		function raise(i)
 		{
 			document.getElementById('gal-img'+i).style.boxShadow= "0px 5px 15px 2px #777";
 			document.getElementById('gallery-main-caption').innerHTML=captions[i]; /*when opacity transitions to 0, change caption */
-			document.getElementById('gallery-footer-left').style.opacity=1;
+			document.getElementById('gallery-main-caption').style.opacity=1;
 		}
 
 		function lower(i)
 		{
 			document.getElementById('gal-img'+i).style.boxShadow= "0px 0px 10px #888";
 			if (currentmode=='gallery-grid')
-			document.getElementById('gallery-footer-left').style.opacity=0;
+			document.getElementById('gallery-main-caption').style.opacity=0;
 		}
 		</script>
         <script type="text/javascript" src ="misc.js"></script>
@@ -103,8 +104,7 @@
 							<a href="http://www.facebook.com/artarium.in"><img src="img/facebook.png"> &#x00B7; </a>    
 							<a href="http://twitter.com/Artarium"><img src="img/twitter.png">  &#x00B7; </a>
 							<a href="/about">about</a>  &#x00B7; 
-							<a href="mailto:contact@artarium.in">contact</a> &#x00B7; 
-							<a href="/faq">photographer FAQs</a> &#x00B7; 
+							<a href="mailto:contact@artarium.in">contact</a> &#x00B7;
 							<a href="/terms">T&C/privacy</a>
 						</div>
 					</div>					                    

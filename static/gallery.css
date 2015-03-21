@@ -3,7 +3,7 @@
 	min-width: 750px;
 	}
 
-#gallery-filmstrip
+#gallery-single
 	{
 	display: none;
 	}
@@ -53,18 +53,15 @@
 
 #gallery-main-caption
 	{
-	font: 1.5em 'Terminal Dosis', 'Trebuchet MS' sans-serif;
+	font: 20px 'Terminal Dosis', 'Trebuchet MS' sans-serif;
 	font-weight:400;
 	text-align:left;
 	display:inline;
-	#color:inherit;
-	}
-
-.gallery-main-caption-lightbox
-	{
-	position:fixed;
-	bottom:10px;
-	left:10px;
+	transition: opacity 0.2s;
+	-moz-transition: opacity 0.2s; /* Firefox 4 */
+	-webkit-transition: opacity 0.2s; /* Safari and Chrome */
+	-o-transition: opacity 0.2s; /* Opera */
+	-ms-transition: opacity 0.2s; /* Explorer 10 */
 	}
 
 #gallery-main-photo
@@ -100,10 +97,6 @@
 	-ms-transition: opacity 0.5s; /* Explorer 10 */
 	}
 
-.lightbox-image
-	{
-		position:fixed !important;
-	}
 #gallery-menu
 	{
 	display: block;
@@ -137,13 +130,6 @@
 #gallery-footer-left
 	{
 	float:left;
-	opacity:0;
-	#height: 20px;
-	transition: opacity 0.2s;
-	-moz-transition: opacity 0.2s; /* Firefox 4 */
-	-webkit-transition: opacity 0.2s; /* Safari and Chrome */
-	-o-transition: opacity 0.2s; /* Opera */
-	-ms-transition: opacity 0.2s; /* Explorer 10 */
 	}
 #gallery-footer-right
 	{
@@ -154,14 +140,6 @@
 #gallery-footer-right img
 	{
 	-webkit-transition : -webkit-filter 1s linear
-	}
-
-.gallery-footer-right-lightbox
-	{
-	position:fixed !important;
-	bottom:10px;
-	right:10px;
-	margin-right: 0 !important;
 	}
 
 #cart-link
@@ -213,7 +191,7 @@
 
 #navigation
 	{
-	font-size: 1.1em;
+	font-size: 15px;
 	display: none;
 	text-align: right;
 	margin-right: 20px;

@@ -6,6 +6,7 @@
 {% block artarium_logo %}<a href="/"><img onload="headerappear()" alt="Artarium" src="img/artarium-logo.png"></a>{% endblock %}
 {% block css2 %}
         <link rel="stylesheet" type="text/css" href="gallery.css"/>
+        <link rel="stylesheet" type="text/css" id="grid-css" href="gallery-grid.css"/>
 {% endblock %}
 {% block body_onload %}onload="imagearray(), next()" onkeydown="keyNavigate(event)"{% endblock %}
 {% block gallery_menu_display %}display:block;opacity:1{% endblock %}
@@ -140,7 +141,7 @@
 									</div>
 									<div id="view-changer">
 										<a id='gallery-grid-button' onclick="changegallerymode('gallery-grid')" title="Grid" style="opacity:1"><img src="img/gallery-grid.svg"></a>
-										<a id='gallery-filmstrip-button' onclick="changegallerymode('gallery-filmstrip')" title="Single"><img src="img/gallery-filmstrip.svg"></a>
+										<a id='gallery-single-button' onclick="changegallerymode('gallery-single')" title="Single"><img src="img/gallery-single.svg"></a>
 										<a id='gallery-lightbox-button' onclick="changegallerymode('gallery-lightbox')" title="Lightbox"><img id='gallery-lightbox-button-img' src="img/gallery-lightbox.svg"></a>
 									</div>
 								</div>

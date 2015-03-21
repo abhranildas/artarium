@@ -1,0 +1,55 @@
+#currentmode
+{
+	display: none;
+}
+#fadetop
+{
+	display: none;
+}
+#fadebottom
+{
+	display: none;
+}
+#gallery-footer-left
+{
+	opacity: 1;
+}
+#cart-link
+{
+	visibility: visible;
+}
+#navigation
+{
+	display: inline;
+}
+#gallery-filmstrip
+{
+	display: block;
+}
+#lightbox
+{
+	visibility: visible;
+	opacity:1;
+}
+
+#gallery-main-caption
+{
+	position:fixed;
+	bottom:10px;
+	left:10px;
+}
+#gallery-footer-right
+{
+	position:fixed !important;
+	bottom:10px;
+	right:10px;
+	margin-right: 0 !important;
+}
+#gallery-main-photo-photo
+{
+	position:fixed !important;
+}
+#loading
+{
+	position: fixed;
+}

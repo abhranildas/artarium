@@ -1,0 +1,31 @@
+#gallery-grid
+{display:none;
+}
+#fadetop
+{
+	display: none;
+}
+#fadebottom
+{
+	display: none;
+}
+#gallery-footer-left
+{
+	opacity: 1;
+}
+#cart-link
+{
+	visibility: visible;
+}
+#navigation
+{
+	display: inline;
+}
+#gallery-single
+{
+	display: block;
+}
+#gallery-main-caption
+{
+	opacity:1;
+}

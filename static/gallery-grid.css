@@ -1,0 +1,14 @@
+#gallery-single
+{display:none;}
+#navigation
+{display:none;}
+#cart-link
+{visibility:hidden;}
+#gallery-grid
+{display:block;}
+#fadetop
+{display:block;}
+#fadebottom
+{display:block;}
+#gallery-main-caption
+{opacity:0;}

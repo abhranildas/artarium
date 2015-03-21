@@ -2,7 +2,6 @@
 {
 	height: 89%;
 	overflow-y: auto;
-	padding-right: 20px;
 }
 
 #artist-left
@@ -28,7 +27,13 @@
 #currpage
 {
 	margin: 15px 20px 20px 35px;
+	padding-right:10px;
 }
+
+#fadebottom
+	{
+	bottom:20px;
+	}
 
 .gallery-name
 	{

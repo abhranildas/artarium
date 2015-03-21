@@ -4,7 +4,7 @@
 {# grid mode #}
 <div id = "gallery-grid">
 {% for image in images %}		
-        <span style="cursor:pointer" onclick="changegallerymode('gallery-filmstrip',{{ images.index(image)+1 }})">
+        <span style="cursor:pointer" onclick="changegallerymode('gallery-single',{{ images.index(image)+1 }})">
 <div class="gallery-preview" onmouseover="raise({{ images.index(image) }})" onmouseout="lower({{ images.index(image) }})" id="gal{{ images.index(image) }}">
                                             <div class="gallery-preview-img" id="gal-img{{ images.index(image) }}" style="background-image: url('galleries/{{ gallerykey }}/{{ image[0] }}.jpg')">
                                                 <img style="display:none" onload="galappear('gal{{ images.index(image) }}', '140px')" src="galleries/{{ gallerykey }}/{{ image[0] }}.jpg">
@@ -15,9 +15,9 @@
 </div>
 {# end grid mode #}
 
-{# filmstrip mode #}
+{# single mode #}
 
-<div id="gallery-filmstrip">
+<div id="gallery-single">
 <div class="gallery">
                                     <div class="gallery-photo" id="gallery-main-photo">
                                         <img id="loading" src="img/loading.gif">
@@ -28,7 +28,7 @@
                                     
                                 </div>
 </div>
-{# end filmstrip mode #}
+{# end single mode #}
 
 <div id="lightbox"></div>
 
