@@ -12,8 +12,8 @@
 {% block artist_menu_display %}display:block;opacity:1{% endblock %}
 
 {% block content %}
+                                <div id="fadetop"></div>
 							<div id="currpage">
-								<div id="fadetop"></div>
 <div id="artist-left"><img id="artist-photo" alt="{{ artist_name }}" src="artists/{{ artistkey }}.jpg">
 <h3 id="gallerylink-header">Gallery</h3>
 <a href="/{{ gallerykey }}">
@@ -32,6 +32,7 @@
                                 <div class="text" id="artist-bio">
                                 {{ bio|safe }}
                                 </div>
-																<div id="fadebottom"></div>
-							</div>	
+							</div>
+
+                                                                <div id="fadebottom"></div>
 {% endblock content %}

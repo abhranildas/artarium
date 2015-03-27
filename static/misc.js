@@ -2,23 +2,22 @@ var currentimg=1;
 
 function togglemenu(menuid)
 {
-	var menu=document.getElementById(menuid)
-	if (menu.style.display=='none')
+	if ($('#'+menuid).css('display')=='none')
 	{
-		menu.style.display='block';
-		menu.style.opacity=1;
+		$('#'+menuid).css('display','block');
+		$('#'+menuid).css('opacity',1);
 	}
 	else
 	{
-		menu.style.opacity=0;
-		menu.style.display='none';
+		$('#'+menuid).css('opacity',0);
+		$('#'+menuid).css('display','none');
 	}
 	return false;
 }
 
 function headerappear()
 {
-	document.getElementById('header').style.opacity=1;
+	$('#header').css('opacity',1);
 }
 
 function changegallerymode(tomode,imgnum)
@@ -63,22 +62,30 @@ function changegallerymode(tomode,imgnum)
 			imgnum=currentimg;
 		else
 			currentimg=imgnum;	//changing the global variable currentimg of the page that called this script
-		document.photo.src="galleries/"+gallerykey+"/"+img_filenames[imgnum-1]+".jpg";
-		document.photo.alt=captions[imgnum];
+		$('[name="photo"]').attr('src',"galleries/"+gallerykey+"/"+img_filenames[imgnum-1]+".jpg");
+		$('[name="photo"]').attr('alt',captions[imgnum]);
 		$('#gallery-main-caption').html(captions[imgnum-1]);
 		$('#cart-link').attr('href',buylinks[imgnum-1]);
 		$('#navigation-count').html((imgnum)+' of '+(imax));
 	}
 	else if (tomode=='gallery-lightbox')
 	{
-		if (!document.getElementById('lightbox-css'))
+		if (!$('#lightbox-css').length)
 		{
 			$('head').append('<link rel="stylesheet" type="text/css" id="lightbox-css" href="gallery-lightbox.css">');
 			$('#gallery-lightbox-button-img').attr('src','img/gallery-lightbox-toggle.svg');
 			$('#gallery-lightbox-button').attr('title','Toggle lightbox colour');
 		}
 	}
-	document.getElementById(currentmode+'-button').style.opacity=0.5;
-	document.getElementById(tomode+'-button').style.opacity=1;
+	$('#'+currentmode+'-button').css('opacity',0.5);
+	$('#'+tomode+'-button').css('opacity',1);
 	currentmode=tomode;
+}
+
+function keyNavigate(e)
+{
+	if(e.which==39)
+		pre_next();
+	else if (e.which==37)
+		pre_previous();
 }

@@ -36,9 +36,6 @@ handlers:
 - url: /about
   script: main.py
 
-- url: /faq
-  script: main.py
-
 - url: /terms
   script: main.py
 

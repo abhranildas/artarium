@@ -14,17 +14,8 @@
 
 {% block content %}
 								<script type="text/javascript">
-									var currentmode='gallery-grid';
-									
+									var currentmode='gallery-grid';									
 									var gallerykey="{{ gallerykey }}";
-                                    function keyNavigate(e)
-                                    {
-                                        if(e.which==39)
-                                            pre_next();
-                                        else if (e.which==37)
-                                            pre_previous();
-                                    }
-
                                     var currentimg=0, imax={{ photo_count }}; //these become global variables so that view changer scripts can manipulate them.
                                     function imagearray()
                                     {
@@ -68,20 +59,20 @@
                                         }
                                         else
                                         {
-                                            document.getElementById('gallery-footer-left').style.opacity=1;
+                                            $('#gallery-footer-left').css('opacity',1);
                                         }                                      
                                         document.photo.style.opacity=1;
                                         document.photo.alt=captions[currentimg-1];
-                                        document.getElementById('gallery-main-caption').innerHTML=captions[currentimg-1];
-										document.getElementById('cart-link').href=buylinks[currentimg-1];                                        
-                                        document.getElementById('navigation-count').innerHTML=(currentimg)+" of "+(imax);
+                                        $('#gallery-main-caption').html(captions[currentimg-1]);
+										$('#cart-link').attr('href',buylinks[currentimg-1]);                                        
+                                        $('#navigation-count').html((currentimg)+" of "+(imax));
                                         return true;
                                     }
 
                                     function pre_next()
                                     {
                                         document.photo.style.opacity=0;
-                                        document.getElementById('gallery-footer-left').style.opacity=0;
+                                        $('#gallery-footer-left').css('opacity',0);
                                         setTimeout("next()",500);
                                         return false;
                                     }
@@ -135,8 +126,8 @@
 									<div id="navigation">
 										<div id="navigation-count"></div>
 										<div id="navigation-buttons">
-											<a onclick="pre_previous()" title="Previous (&#8592; key)">&#x25c0;</a>
-											<a onclick="pre_next()" title= "Next (&#8594; key)">&#x25b6;</a>
+											<a onclick="pre_previous()" title="Previous (&#8592; key)"><img src='img/left-arrow.svg'></a>
+											<a onclick="pre_next()" title= "Next (&#8594; key)"><img src='img/right-arrow.svg'></a>
 										</div>
 									</div>
 									<div id="view-changer">

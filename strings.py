@@ -147,7 +147,7 @@ def stringlist_faq():
 'pagecontent':faqpage,
 'keywords':'artarium photography art buy view gallery photos faq'}
 
-stringlist_terms={
+stringlist_basic={
 'galleries':galleries(), #construct the galleries menu
 'artists':artists() #to construct the artists menu
 }

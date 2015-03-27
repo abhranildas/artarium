@@ -120,7 +120,7 @@
 	height:20px;
 	text-align: right;
 	position: absolute;/*z-index cannot be used with static positioning */
-	bottom: 9px;
+	bottom: 12px;
 	left:135px;
 	width: -moz-calc(100% - 135px);
     width: -webkit-calc(100% - 135px);
@@ -149,49 +149,14 @@
 
 #cart-button
 	{
-	height: 15px;
+	height: 20px;
 	margin-right: 20px;
 	vertical-align: -2px;
 	}
 
-
-#fadetop
-	{
-	height:10px;
-	position:absolute;
-	top: 55px;
-	left: 142px;
-	width: -moz-calc(100% - 172px);
-	width: -webkit-calc(100% - 172px);
-	width: calc(100% - 172px);
-	z-index:1;
-	background: -webkit-linear-gradient(top,rgba(255,255,255,1),rgba(255,255,255,0)); /*Safari 5.1-6*/
-	background: -o-linear-gradient(bottom,rgba(255,255,255,1),rgba(255,255,255,0)); /*Opera 11.1-12*/
-	background: -moz-linear-gradient(bottom,rgba(255,255,255,1),rgba(255,255,255,0)); /*Fx 3.6-15*/
-	background: linear-gradient(to bottom, rgba(255,255,255,1),rgba(255,255,255,0)); /*Standard*/
-	#display:none;
-	}
-
-#fadebottom
-	{
-	height:10px;
-	position:absolute;
-	bottom: 35px;
-	left: 142px;
-	width: -moz-calc(100% - 172px);
-	width: -webkit-calc(100% - 172px);
-	width: calc(100% - 172px);
-	z-index:1;
-	background: -webkit-linear-gradient(bottom,rgba(255,255,255,1),rgba(255,255,255,0)); /*Safari 5.1-6*/
-	background: -o-linear-gradient(top,rgba(255,255,255,1),rgba(255,255,255,0)); /*Opera 11.1-12*/
-	background: -moz-linear-gradient(top,rgba(255,255,255,1),rgba(255,255,255,0)); /*Fx 3.6-15*/
-	background: linear-gradient(to top, rgba(255,255,255,1),rgba(255,255,255,0)); /*Standard*/
-	#display:none;
-	}
-
 #navigation
 	{
-	font-size: 15px;
+	font-size: 16px;
 	display: none;
 	text-align: right;
 	margin-right: 20px;
@@ -207,11 +172,11 @@
 	display:inline;
 	}
 
-#navigation-buttons a
+#navigation-buttons img
 	{
-	color:black;
-	vertical-align:15%;
-	font-size:.8em;
+	height: 10px;
+	margin-left:5px;
+	vertical-align:10%;
 	}
 
 #view-changer
@@ -221,7 +186,7 @@
 
 #view-changer img
 	{
-	height: 10px;
+	height: 12px;
 	}
 
 #gallery-footer-right a

@@ -39,15 +39,11 @@ class about(webapp.RequestHandler):
 		template = JINJA_ENVIRONMENT.get_template('templates/about.html')
 		self.response.write(template.render(strings.stringlist_about))
 	
-class faq(webapp.RequestHandler):
-	def get(self):
-		self.response.out.write(strings.artarium_template%(strings.stringlist_faq()))
-	
 class terms(webapp.RequestHandler):
 	def get(self):
 		#self.response.out.write(strings.artarium_template%(strings.stringlist_terms())%strings.read_terms())
 		template = JINJA_ENVIRONMENT.get_template('templates/terms.html')
-		self.response.write(template.render(strings.stringlist_terms))
+		self.response.write(template.render(strings.stringlist_basic))
 
 application = webapp.WSGIApplication([
 ('/', homepage),
@@ -60,7 +56,6 @@ application = webapp.WSGIApplication([
 ('/light-on-the-land', gallery),
 ('/backpackers-diary', gallery),
 ('/about', about),
-('/faq', faq),
 ('/terms', terms)],
 debug=True)
 
