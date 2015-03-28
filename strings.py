@@ -80,11 +80,11 @@ def gallery_previews():
         s+=  '''                                    <a href="/%(gallerykey)s">
                                         <div class="gallery-preview" onmouseover="raise(%(i)d)" onmouseout="lower(%(i)d)" id="gal%(i)d">
                                             <div class="gallery-preview-img" id="gal-img%(i)d">
-                                                <img onload="galappear('gal%(i)d', '140px')" src="galleries/thumbnails/%(gallerykey)s.jpg">
+                                                <img onload="galappear('gal%(i)d', '140px')" src="galleries/thumbnails/%(gallerykey)s.jpg" alt='%(gallery_name)s'>
                                             </div>
                                             <div class="gallery-preview-text" id="gal-text%(i)d">
-                                                <span class="gallery-name" href="">%(gallery_name)s</span><br/>
-                                                <span class="artist-name" href="">%(artist_name)s</span>
+                                                <span class="gallery-name">%(gallery_name)s</span><br/>
+                                                <span class="artist-name">%(artist_name)s</span>
                                             </div>
                                         </div>
                                     </a>
@@ -129,23 +129,6 @@ stringlist_about={
 'galleries':galleries(), #construct the galleries menu
 'artists':artists() #to construct the artists menu
 }
-
-def stringlist_faq():
-    return {
-'title':'Artarium: FAQs for Photographers',
-'description':'Photography and art gallery.',
-'url':'artarium.in/faq',
-'artarium_logo':'<a href="/"><img onload="headerappear()" alt="Artarium" src="img/artarium-logo.png"></a>',
-'css2':'''
-        <link rel="stylesheet" type="text/css" href="gallery.css"/>
-        <link rel="stylesheet" type="text/css" href="artist.css"/>''',
-'body_onload':'',
-'gallery_menu':gallery_menu(0,0),
-'gallery_menu_display':'display:none;opacity:0',
-'artist_menu':artist_menu(0,0),
-'artist_menu_display':'display:none;opacity:0',
-'pagecontent':faqpage,
-'keywords':'artarium photography art buy view gallery photos faq'}
 
 stringlist_basic={
 'galleries':galleries(), #construct the galleries menu

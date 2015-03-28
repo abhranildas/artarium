@@ -63,7 +63,7 @@ function changegallerymode(tomode,imgnum)
 		else
 			currentimg=imgnum;	//changing the global variable currentimg of the page that called this script
 		$('[name="photo"]').attr('src',"galleries/"+gallerykey+"/"+img_filenames[imgnum-1]+".jpg");
-		$('[name="photo"]').attr('alt',captions[imgnum]);
+		$('[name="photo"]').attr('alt',captions[imgnum-1]);
 		$('#gallery-main-caption').html(captions[imgnum-1]);
 		$('#cart-link').attr('href',buylinks[imgnum-1]);
 		$('#navigation-count').html((imgnum)+' of '+(imax));
