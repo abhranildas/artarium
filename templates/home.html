@@ -3,11 +3,11 @@
 {% block description %}Photography and art gallery.{% endblock %}
 {% block url %}artarium.in{% endblock %}
 {% block keywords %}artarium photography art buy view gallery photos{% endblock %}
-{% block artarium_logo %}<img onload="headerappear()" alt="Artarium" src="img/artarium-logo.png">{% endblock %}
+{% block artarium_logo %}<img alt="Artarium" src="img/artarium-logo.png">{% endblock %}
 {% block css2 %}{% endblock %}
-{% block body_onload %}{% endblock %}
-{% block gallery_menu_display %}display:none;opacity:0{% endblock %}
-{% block artist_menu_display %}display:none;opacity:0{% endblock %}
+{% block body_onload %}onload="$('#currpage').css('opacity',1)"{% endblock %}
+{% block gallery_menu_display %}display:none;{% endblock %}
+{% block artist_menu_display %}display:none;{% endblock %}
 
 {% block content %}
 <div id="currpage" style="font-size:0.8em">

@@ -1,0 +1,28 @@
+{% extends "templates/base.html" %}
+{% block title %}Artarium: About Us{% endblock %}
+{% block description %}Photography and art gallery.{% endblock %}
+{% block url %}artarium.in/about{% endblock %}
+{% block keywords %}artarium photography art buy view gallery photos about{% endblock %}
+{% block artarium_logo %}<a href="/"><img onload="headerappear()" alt="Artarium" src="img/artarium-logo.png"></a>{% endblock %}
+{% block css2 %}
+        <link rel="stylesheet" type="text/css" href="artist.css"/>
+{% endblock %}
+{% block body_onload %}onload="$('#currpage').css('opacity',1)"{% endblock %}
+{% block gallery_menu_display %}display:none;{% endblock %}
+{% block artist_menu_display %}display:none;{% endblock %}
+
+{% block content %}
+                                                                   
+															<div id="currpage">
+								<h1>Contact Us</h1>
+                               <p><a href="mailto:contact@artarium.in">contact@artarium.in</a></p>
+							   <p id='credit-buttons'>
+								<img src="img/powered-by-gae.png">
+								<img src="img/python-powered.svg">
+								<img src="img/jinja2.png">
+								<img src="img/html5.svg">
+								<img src="img/css3.svg">
+								<img src="img/jquery.jpg">
+								</p>																
+							</div>								   
+{% endblock content %}

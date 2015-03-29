@@ -3,18 +3,18 @@
 {% block description %}Photography and art gallery.{% endblock %}
 {% block url %}artarium.in/terms{% endblock %}
 {% block keywords %}artarium photography art buy view gallery photos terms conditions{% endblock %}
-{% block artarium_logo %}<a href="/"><img onload="headerappear()" alt="Artarium" src="img/artarium-logo.png"></a>{% endblock %}
+{% block artarium_logo %}<a href="/"><img alt="Artarium" src="img/artarium-logo.png"></a>{% endblock %}
 {% block css2 %}        
         <link rel="stylesheet" type="text/css" href="artist.css"/>
 {% endblock %}
-{% block body_onload %}{% endblock %}
-{% block gallery_menu_display %}display:none;opacity:0{% endblock %}
-{% block artist_menu_display %}display:none;opacity:0{% endblock %}
+{% block body_onload %}onload="$('#currpage').css('opacity',1)"{% endblock %}
+{% block gallery_menu_display %}display:none;{% endblock %}
+{% block artist_menu_display %}display:none;{% endblock %}
 
 {% block content %}
                                 <div id="fadetop"></div>
 							<div id="currpage">
-							<h1>Terms & Conditions</h1>
+							<h1>Terms &amp; Conditions</h1>
 								<span class="text">
                                 <p>Artarium ("Artarium.in," "we" or "our") provides a service for viewing and purchasing original works of fine art, photographs and prints through our website, accessible at www.artarium.in (the "site"). Please read carefully the following Terms and Conditions ("Terms") and our Privacy Policy, which may be found  on our website and which is incorporated by reference into these Terms. These Terms govern your access to and use of the Site and Services, and constitute a binding legal agreement between you and Artarium.</p>
 								<p>Artarium is covered and protected by all laws including but not limited to copyright and trademark laws of India. Users are not permitted to reproduce, distribute, modify, display or make use of any of the contents of this website, unless explicitly marked by a license that allows this, such as the GNU Public License or a Creative Commons License. Any unauthorized use of the services and content shall be a violation of copyright laws, trademark laws, as well as laws of privacy.</p>

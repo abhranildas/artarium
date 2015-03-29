@@ -1,23 +1,37 @@
 var currentimg=1;
 
-function togglemenu(menuid)
-{
-	if ($('#'+menuid).css('display')=='none')
-	{
-		$('#'+menuid).css('display','block');
-		$('#'+menuid).css('opacity',1);
-	}
-	else
-	{
-		$('#'+menuid).css('opacity',0);
-		$('#'+menuid).css('display','none');
-	}
-	return false;
-}
-
 function headerappear()
 {
 	$('#header').css('opacity',1);
+}
+
+function raise(i)
+{
+	$('#gal-img'+i).css('box-shadow', '0px 5px 15px 2px #777');
+	$('#gallery-main-caption').html(captions[i]); /*when opacity transitions to 0, change caption */
+	$('#gallery-main-caption').css('opacity',1);
+}
+
+function lower(i)
+{
+	$('#gal-img'+i).css('box-shadow', '0px 0px 10px #888');
+	if (currentmode=='gallery-grid')
+	$('#gallery-main-caption').css('opacity',0);
+}
+
+function galappear(id,size)
+{
+	gal=document.getElementById(id);
+	img=gal.getElementsByTagName("img")[0];
+	if (img.width < img.height)
+	{
+		img.style.width=size;
+	}
+	else
+	{
+		img.style.height=size;
+	}
+	gal.style.opacity=1;
 }
 
 function changegallerymode(tomode,imgnum)
@@ -62,8 +76,8 @@ function changegallerymode(tomode,imgnum)
 			imgnum=currentimg;
 		else
 			currentimg=imgnum;	//changing the global variable currentimg of the page that called this script
-		$('[name="photo"]').attr('src',"galleries/"+gallerykey+"/"+img_filenames[imgnum-1]+".jpg");
-		$('[name="photo"]').attr('alt',captions[imgnum-1]);
+		$('#gallery-main-photo-photo').attr('src',"galleries/"+gallerykey+"/"+img_filenames[imgnum-1]+".jpg");
+		$('#gallery-main-photo-photo').attr('alt',captions[imgnum-1]);
 		$('#gallery-main-caption').html(captions[imgnum-1]);
 		$('#cart-link').attr('href',buylinks[imgnum-1]);
 		$('#navigation-count').html((imgnum)+' of '+(imax));

@@ -3,13 +3,13 @@
 {% block description %}Photography and art gallery.{% endblock %}
 {% block url %}artarium.in/{{ artistkey }}{% endblock %}
 {% block keywords %}artarium photography art buy view gallery photos {{ artist_name }}{% endblock %}
-{% block artarium_logo %}<a href="/"><img onload="headerappear()" alt="Artarium" src="img/artarium-logo.png"></a>{% endblock %}
+{% block artarium_logo %}<a href="/"><img alt="Artarium" src="img/artarium-logo.png"></a>{% endblock %}
 {% block css2 %}
         <link rel="stylesheet" type="text/css" href="artist.css"/>
 {% endblock %}
-{% block body_onload %}{% endblock %}
-{% block gallery_menu_display %}display:none;opacity:0{% endblock %}
-{% block artist_menu_display %}display:block;opacity:1{% endblock %}
+{% block body_onload %}onload="$('#currpage').css('opacity',1)"{% endblock %}
+{% block gallery_menu_display %}display:none;{% endblock %}
+{% block artist_menu_display %}display:block;{% endblock %}
 
 {% block content %}
                                 <div id="fadetop"></div>
