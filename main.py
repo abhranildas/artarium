@@ -21,9 +21,8 @@ class homepage(webapp2.RequestHandler):
 class gallery(webapp2.RequestHandler):
 	def get(self):
 		gallerykey=self.request.path[1:]
-		artistkey=strings.togglegalart(0,gallerykey)
 		template = JINJA_ENVIRONMENT.get_template('templates/gallery_mode.html')
-		self.response.write(template.render(strings.stringlist_gallery(gallerykey,artistkey)))
+		self.response.write(template.render(strings.stringlist_gallery(gallerykey)))
 		#self.response.out.write(strings.artarium_template%(strings.stringlist_gallery(gallerykey))%strings.read_galart_file(gallerykey,strings.togglegalart(0,gallerykey)))
 
 class artist(webapp2.RequestHandler):

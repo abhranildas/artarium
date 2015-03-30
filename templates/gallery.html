@@ -8,12 +8,12 @@
         <link rel="stylesheet" type="text/css" href="gallery.css"/>
         <link rel="stylesheet" type="text/css" id="grid-css" href="gallery-grid.css"/>
 {% endblock %}
-{% block body_onload %}onload="imagearray(), next(), $('#currpage').css('opacity',1)" onkeydown="keyNavigate(event)"{% endblock %}
+{% block body_onload %}onload="imagearray(), next()" onkeydown="keyNavigate(event)"{% endblock %}
 {% block gallery_menu_display %}display:block;{% endblock %}
 {% block artist_menu_display %}display:none;{% endblock %}
 
 {% block content %}
-								<script type="text/javascript">
+								<script type="text/javascript">                                    
 									var currentmode='gallery-grid';									
 									var gallerykey="{{ gallerykey }}";
                                     var currentimg=0, imax={{ photo_count }}; //these become global variables so that view changer scripts can manipulate them.
@@ -91,7 +91,7 @@
                                     function pre_previous()
                                     {
                                         $('#gallery-main-photo-photo').css('opacity',0);
-                                        document.getElementById('gallery-footer-left').style.opacity=0;
+                                        $('#gallery-footer-left').css('opacity',0);
                                         setTimeout("previous()",500);
                                         return false;
                                     }
@@ -137,4 +137,5 @@
 									</div>
 								</div>
 							</div>
+                            <script>$('#currpage').css('opacity',1);</script> <!--this is used instead of currpage fade in on body onload so that gallery tiles can fade in individually-->
 {% endblock content %}

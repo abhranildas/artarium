@@ -120,7 +120,7 @@
 	height:20px;
 	text-align: right;
 	position: absolute;/*z-index cannot be used with static positioning */
-	bottom: 12px;
+	bottom: 15px;
 	left:135px;
 	width: -moz-calc(100% - 135px);
     width: -webkit-calc(100% - 135px);

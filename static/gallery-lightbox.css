@@ -2,6 +2,23 @@
 {
 	display: none;
 }
+#lightbox {
+	background-color: white;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	z-index: 1;
+	visibility: hidden;
+	transition: opacity 1s, background-color 1s;
+	-moz-transition: opacity 1s, background-color 1s; /* Firefox 4 */
+	-webkit-transition: opacity 1s, background-color 1s, -webkit-filter 1s linear; 	/* Safari and Chrome */
+	-o-transition: oopacity 1s, background-color 1s; /* Opera */
+	-ms-transition: opacity 1s, background-color 1s; /* Explorer 10 */
+}
+
 #fadetop
 {
 	display: none;
@@ -29,10 +46,10 @@
 }
 
 #navigation-buttons img
-	{
+{
 	height: 12px;
 	vertical-align:5%;
-	}
+}
 
 #gallery-filmstrip
 {

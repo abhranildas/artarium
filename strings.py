@@ -5,7 +5,7 @@ def togglegalart(column,key):
         if key == bothkeylist[i][column]:
             return bothkeylist[i][column-1]
 
-def stringlist_gallery(gallerykey,artistkey):   #reads the galart file
+def stringlist_gallery(gallerykey):   #reads the galart file
     f=open('gallery-info/'+gallerykey+'.txt','r')
     list = [i.strip() for i in f.readlines()]
     f.close()
@@ -16,6 +16,7 @@ def stringlist_gallery(gallerykey,artistkey):   #reads the galart file
     img_filenames=[i[0] for i in images]
     captions=[i[1] for i in images]
     buylinks=[i[2] for i in images]
+    artistkey=togglegalart(0,gallerykey)
     f=open('artist-info/'+artistkey+'.txt','r')
     list = f.read().split('\n')
     f.close()
@@ -33,7 +34,7 @@ def stringlist_gallery(gallerykey,artistkey):   #reads the galart file
 'bio':bio,
 'images':images,
 'galleries':galleries(gallerykey), #to construct the galleries menu
-'artists':artists(artistkey) #to construct the artists menu
+'artists':artists() #to construct the artists menu
 }
 
 def galleries(gallerykey=0): #list of gallery objects to construct gallery menu. Argument is the gallery whose page this menu is for. If unsupplied, all are links.
@@ -75,12 +76,12 @@ def gallery_previews():
     s=''
     for i in range(len(keylist)):
         gallerykey=keylist[i].split(':')[0]
-        dict=stringlist_gallery(gallerykey,togglegalart(0,gallerykey))
+        dict=stringlist_gallery(gallerykey)
         dict['i']=i
         s+=  '''                                    <a href="/%(gallerykey)s">
                                         <div class="gallery-preview" onmouseover="raise(%(i)d)" onmouseout="lower(%(i)d)" id="gal%(i)d">
-                                            <div class="gallery-preview-img" id="gal-img%(i)d">
-                                                <img onload="galappear('gal%(i)d', '140px')" src="galleries/thumbnails/%(gallerykey)s.jpg" alt='%(gallery_name)s'>
+                                            <div class="gallery-preview-img" id="gal-img%(i)d" style="background-image: url('galleries/thumbnails/%(gallerykey)s.jpg')">
+                                                <img style='display:none' onload="$('#gal%(i)d').css('opacity',1);" src="galleries/thumbnails/%(gallerykey)s.jpg" alt='%(gallery_name)s'>
                                             </div>
                                             <div class="gallery-preview-text" id="gal-text%(i)d">
                                                 <span class="gallery-name">%(gallery_name)s</span><br/>

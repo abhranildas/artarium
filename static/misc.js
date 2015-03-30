@@ -19,21 +19,6 @@ function lower(i)
 	$('#gallery-main-caption').css('opacity',0);
 }
 
-function galappear(id,size)
-{
-	gal=document.getElementById(id);
-	img=gal.getElementsByTagName("img")[0];
-	if (img.width < img.height)
-	{
-		img.style.width=size;
-	}
-	else
-	{
-		img.style.height=size;
-	}
-	gal.style.opacity=1;
-}
-
 function changegallerymode(tomode,imgnum)
 {
 	if (currentmode=='gallery-grid')
@@ -55,7 +40,7 @@ function changegallerymode(tomode,imgnum)
 		{
 			$('#lightbox-css').remove();
 			$('#lightbox-dark-css').remove();
-			$('#gallery-lightbox-button-img').attr('src','img/gallery-lightbox.svg');
+			$('#gallery-lightbox-button-img').attr('src','img/gallery-lightbox.png');
 			$('#gallery-lightbox-button').attr('title','Lightbox');
 		}
 	}
@@ -87,7 +72,7 @@ function changegallerymode(tomode,imgnum)
 		if (!$('#lightbox-css').length)
 		{
 			$('head').append('<link rel="stylesheet" type="text/css" id="lightbox-css" href="gallery-lightbox.css">');
-			$('#gallery-lightbox-button-img').attr('src','img/gallery-lightbox-toggle.svg');
+			$('#gallery-lightbox-button-img').attr('src','img/gallery-lightbox-toggle.png');
 			$('#gallery-lightbox-button').attr('title','Toggle lightbox colour');
 		}
 	}
