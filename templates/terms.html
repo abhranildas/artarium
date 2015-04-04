@@ -1,9 +1,14 @@
 {% extends "templates/base.html" %}
-{% block title %}Artarium: Terms & Conditions{% endblock %}
+{% block title %}Artarium: Terms &amp; Conditions{% endblock %}
 {% block description %}Photography and art gallery.{% endblock %}
 {% block url %}artarium.in/terms{% endblock %}
 {% block keywords %}artarium photography art buy view gallery photos terms conditions{% endblock %}
-{% block artarium_logo %}<a href="/"><img alt="Artarium" src="img/artarium-logo.png"></a>{% endblock %}
+{% block artarium_logo %}<a href="/">
+<div id="header-logo">
+<img class="header-bottom" src="img/artarium-logo-hover.png" />
+<img class="header-top" src="img/artarium-logo.png" />
+</div>
+</a>{% endblock %}
 {% block css2 %}        
         <link rel="stylesheet" type="text/css" href="artist.css"/>
 {% endblock %}

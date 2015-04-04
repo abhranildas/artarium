@@ -3,7 +3,12 @@
 {% block description %}Photography and art gallery.{% endblock %}
 {% block url %}artarium.in/{{ artistkey }}{% endblock %}
 {% block keywords %}artarium photography art buy view gallery photos {{ artist_name }}{% endblock %}
-{% block artarium_logo %}<a href="/"><img alt="Artarium" src="img/artarium-logo.png"></a>{% endblock %}
+{% block artarium_logo %}<a href="/">
+<div id="header-logo">
+<img class="header-bottom" src="img/artarium-logo-hover.png" />
+<img class="header-top" src="img/artarium-logo.png" />
+</div>
+</a>{% endblock %}
 {% block css2 %}
         <link rel="stylesheet" type="text/css" href="artist.css"/>
 {% endblock %}
@@ -18,8 +23,8 @@
 <h3 id="gallerylink-header">Gallery</h3>
 <a href="/{{ gallerykey }}">
                                         <div class="gallery-preview" onmouseover="raise(0)" onmouseout="lower(0)" id="gal0">
-                                            <div class="gallery-preview-img" id="gal-img0">
-                                                <img onload="galappear('gal0', '100px')" src="galleries/thumbnails/{{ gallerykey }}.jpg" alt='{{ gallery_name }}'>
+                                            <div class="gallery-preview-img" id="gal-img0" style="background-image: url('galleries/thumbnails/{{ gallerykey }}.jpg')">
+                                                <img style='display:none' onload="$('#gal0').css('opacity',1);" src="galleries/thumbnails/{{ gallerykey }}.jpg" alt='{{ gallery_name }}'>
                                             </div>
                                             <div class="gallery-preview-text" id="gal-text0">
                                                 <span class="gallery-name">{{ gallery_name }}</span><br/>

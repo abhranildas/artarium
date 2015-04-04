@@ -97,6 +97,16 @@
 	-ms-transition: opacity 0.5s; /* Explorer 10 */
 	}
 
+#gallery-grid
+{
+	transition: opacity 0.5s;
+	-moz-transition: opacity 0.5s; /* Firefox 4 */
+	-webkit-transition: opacity 0.5s; /* Safari and Chrome */
+	-o-transition: opacity 0.5s; /* Opera */
+	-ms-transition: opacity 0.5s; /* Explorer 10 */
+	
+}
+
 #gallery-menu
 	{
 	display: block;

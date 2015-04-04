@@ -1,10 +1,5 @@
 var currentimg=1;
 
-function headerappear()
-{
-	$('#header').css('opacity',1);
-}
-
 function raise(i)
 {
 	$('#gal-img'+i).css('box-shadow', '0px 5px 15px 2px #777');
@@ -24,8 +19,6 @@ function changegallerymode(tomode,imgnum)
 	if (currentmode=='gallery-grid')
 	{
 		$('#grid-css').remove();
-		$('head').append('<link rel="stylesheet" type="text/css" id="single-css" href="gallery-single.css">');
-		$('#gallery-main-caption').css('opacity',1);
 	}
 	else if (currentmode=='gallery-lightbox')
 	{
@@ -44,7 +37,6 @@ function changegallerymode(tomode,imgnum)
 			$('#gallery-lightbox-button').attr('title','Lightbox');
 		}
 	}
-
 	if (tomode=='gallery-grid')
 	{
 		$('#single-css').remove();
@@ -71,7 +63,19 @@ function changegallerymode(tomode,imgnum)
 	{
 		if (!$('#lightbox-css').length)
 		{
-			$('head').append('<link rel="stylesheet" type="text/css" id="lightbox-css" href="gallery-lightbox.css">');
+			$('#gallery-main-photo-photo').css('opacity',0);
+			$('#loading').css('opacity',0);
+			if (currentmode=='gallery-grid')
+			{
+				$('<link/>', {rel: 'stylesheet', id: 'lightbox-css', href: 'gallery-lightbox.css'}).appendTo('head');
+			}
+			else if (currentmode=='gallery-single')
+			{
+			//setTimeout("$('head').append(<link rel='stylesheet' type='text/css' id='lightbox-css' href='gallery-lightbox.css'>)",5000);
+			setTimeout("$('<link/>', {rel: 'stylesheet', id: 'lightbox-css', href: 'gallery-lightbox.css'}).appendTo('head')",400);
+			}
+			setTimeout("$('#gallery-main-photo-photo').css('opacity',1)",1000);
+			setTimeout("$('#loading').css('opacity',1)",1500);
 			$('#gallery-lightbox-button-img').attr('src','img/gallery-lightbox-toggle.png');
 			$('#gallery-lightbox-button').attr('title','Toggle lightbox colour');
 		}

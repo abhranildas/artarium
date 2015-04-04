@@ -2,7 +2,7 @@ body
 	{
 	height:100%;
 	font-family: 'Open Sans', 'Aroma', sans-serif;
-	color: grey;
+	color: gray;
 	#overflow-y: hidden;
 	}
 
@@ -14,12 +14,12 @@ height: 100%;
 body a
 	{
 	text-decoration:none;
-	color: grey;
-	transition: color 0.5s;
-	-moz-transition: color 0.5s; /* Firefox 4 */
-	-webkit-transition: color 0.5s; /* Safari and Chrome */
-	-o-transition: color 0.5s; /* Opera */
-	-ms-transition: color 0.5s; /* Explorer 10 */
+	color: gray;
+	transition: color 0.5s, border-bottom 0.5s;
+	-moz-transition: color 0.5s, border-bottom 0.5s; /* Firefox 4 */
+	-webkit-transition: color 0.5s, border-bottom 0.5s; /* Safari and Chrome */
+	-o-transition: color 0.5s, border-bottom 0.5s; /* Opera */
+	-ms-transition: color 0.5s, border-bottom 0.5s; /* Explorer 10 */
 	}
 
 body a:hover
@@ -41,6 +41,15 @@ body a:hover
 	margin-bottom:15px;
 	}
 
+.text a
+	{
+	color: black;
+	}
+
+.text a:hover
+	{
+	border-bottom-color: black;
+	}
 h1
 	{
 	font: 32px 'Terminal Dosis', 'Trebuchet MS', sans-serif;
@@ -59,6 +68,52 @@ h3
 	{	
 	font: 23px 'Terminal Dosis', 'Trebuchet MS', sans-serif;
 	font-weight:200;
+	}
+
+#header-logo
+	{
+	position:relative;
+	float:left;
+	height: 50px;
+	margin-right: 5px;
+	}
+
+#header-logo img.header-top
+{
+	position:absolute;
+	top:0;
+	left:0;
+	-webkit-transition: opacity .5s ease-in-out;
+	-moz-transition: opacity .5s ease-in-out;
+	-o-transition: opacity .5s ease-in-out;
+	transition: opacity .5s ease-in-out;
+}
+
+#header img.header-top:hover {
+  opacity:0;
+}
+
+#header
+	{
+	position: relative;
+	font: 14px 'Open Sans', 'Aroma', sans-serif;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	height: 45px;
+	text-align:left;
+	#opacity: 0;
+	}
+
+#header img
+	{
+	height:100%;
+	border: 0px;
+	}
+
+#header-text	/* not being used now probably */
+	{
+	position: absolute;
+	bottom: -5px;
 	}
 
 .artist-name
@@ -255,35 +310,6 @@ h3
 	clip: rect(0px,140px,140px,0px);
 	position:absolute;
 	border:none;
-	}
-
-#header
-	{
-	font: 14px 'Open Sans', 'Aroma', sans-serif;
-	margin-top: 10px;
-	margin-bottom: 15px;
-	height: 45px;
-	text-align:left;
-	#opacity: 0;
-	}
-
-#header-logo
-	{
-	float:left;
-	height: 50px;
-	margin-right: 10px;
-	}
-
-#header img
-	{
-	height:100%;
-	vertical-align: text-bottom;
-	border: 0px;
-	}
-
-#header-text	/* not being used now probably */
-	{
-	text-align:left;
 	}
 
 #loading
