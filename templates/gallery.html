@@ -5,8 +5,8 @@
 {% block keywords %}artarium photography art buy view gallery photos {{ gallery_name }} {{ artist_name }}{% endblock %}
 {% block artarium_logo %}<a href="/">
 <div id="header-logo">
-<img class="header-bottom" src="img/artarium-logo-hover.png" />
-<img class="header-top" src="img/artarium-logo.png" />
+<img class="header-bottom" src="img/artarium-logo-hover.png" alt='Artarium Logo' />
+<img class="header-top" src="img/artarium-logo.png" alt='Artarium Logo' />
 </div>
 </a>{% endblock %}
 {% block css2 %}
@@ -30,9 +30,9 @@
                                         captions = {{ captions|safe }};
 										buylinks = {{ buylinks|safe }};
                                         img_filenames= {{ img_filenames|safe }};
-                                        $('#gallery-main-photo-photo').attr('src',"galleries/{{ gallerykey }}/"+img_filenames[0]+".jpg");
-                                        $('#gallery-main-photo-photo').attr('alt',captions[0]);
-                                        $('#navigation-count').html("0 of "+(imax));
+                                        $('#gallery-single-photo').attr('src',"galleries/{{ gallerykey }}/"+img_filenames[0]+".jpg");
+                                        $('#gallery-single-photo').attr('alt',captions[0]);
+                                        $('#navigation-count').html("0 <span class='of'>of</span> "+(imax));
 										$('#cart-link').attr('href',buylinks[0]);
                                         // for(j=1; j<{{ photo_count }}; j++)
                                         // {
@@ -47,36 +47,26 @@
                                     var newImg;
                                     function resize() //make this work on the img onload in the html instead of next and previous.
                                     {
-/*                                        imgHeight = this.height;
-                                        imgWidth = this.width;  */                                      
-/*                                        if (imgWidth/imgHeight < 2.25)
+                                      if (firstImage==true)
                                         {
-                                            document.photo.style.height='355px';
-                                        }
-                                        else
-                                        {
-                                            document.photo.style.width="95%";
-                                        } 
-*/                                      if (firstImage==true)
-                                        {
-                                            $('#gallery-main-photo-photo').css('visibility',"visible");
+                                            $('.photo').css('visibility',"visible");
                                             firstImage=false;
                                         }
                                         else
                                         {
                                             $('#gallery-footer-left').css('opacity',1);
                                         }                                      
-                                        $('#gallery-main-photo-photo').css('opacity',1);
-                                        $('#gallery-main-photo-photo').attr('alt',captions[currentimg-1]);
+                                        $('.photo').css('opacity',1);
+                                        $('.photo').attr('alt',captions[currentimg-1]);
                                         $('#gallery-main-caption').html(captions[currentimg-1]);
 										$('#cart-link').attr('href',buylinks[currentimg-1]);                                        
-                                        $('#navigation-count').html((currentimg)+" of "+(imax));
+                                        $('#navigation-count').html((currentimg)+" <span class='of'>of</span> "+(imax));
                                         return true;
                                     }
 
                                     function pre_next()
                                     {
-                                        $('#gallery-main-photo-photo').css('opacity',0);
+                                        $('.photo').css('opacity',0);
                                         $('#gallery-footer-left').css('opacity',0);
                                         setTimeout("next()",500);
                                         return false;
@@ -89,13 +79,13 @@
                                         currentimg++;
                                         newImg=new Image();
                                         newImg.src="galleries/{{ gallerykey }}/"+img_filenames[currentimg-1]+".jpg";
-                                        $('#gallery-main-photo-photo').attr('src',newImg.src);
+                                        $('.photo').attr('src',newImg.src);
                                         newImg.onload = resize;                                        
                                     }
 
                                     function pre_previous()
                                     {
-                                        $('#gallery-main-photo-photo').css('opacity',0);
+                                        $('.photo').css('opacity',0);
                                         $('#gallery-footer-left').css('opacity',0);
                                         setTimeout("previous()",500);
                                         return false;
@@ -108,7 +98,7 @@
                                         currentimg--;
                                         newImg=new Image();
                                         newImg.src="galleries/{{ gallerykey }}/"+img_filenames[currentimg-1]+".jpg";
-                                        $('#gallery-main-photo-photo').attr('src',newImg.src);
+                                        $('.photo').attr('src',newImg.src);
                                         newImg.onload = resize;                                        
                                     }
                                 </script>

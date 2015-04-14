@@ -94,6 +94,11 @@
 				</td>
 			</tr>
 		</table>
+		<!--although the lightbox photo appears only in gallery lightbox mode, it needs to be placed in base.html to be right inside of body for the css to work right. -->
+		<div class="lightbox-photo-container">
+			<img class="loading" id="loading-lightbox" src="img/loading.gif" alt='loading...'>
+ 		   <img id="lightbox-photo" class="photo" alt=''/>
+		</div>
     </body>
 </html>
 {% endautoescape %}

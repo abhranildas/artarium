@@ -53,18 +53,18 @@ function changegallerymode(tomode,imgnum)
 			imgnum=currentimg;
 		else
 			currentimg=imgnum;	//changing the global variable currentimg of the page that called this script
-		$('#gallery-main-photo-photo').attr('src',"galleries/"+gallerykey+"/"+img_filenames[imgnum-1]+".jpg");
-		$('#gallery-main-photo-photo').attr('alt',captions[imgnum-1]);
+		$('.photo').attr('src',"galleries/"+gallerykey+"/"+img_filenames[imgnum-1]+".jpg");
+		$('.photo').attr('alt',captions[imgnum-1]);
 		$('#gallery-main-caption').html(captions[imgnum-1]);
 		$('#cart-link').attr('href',buylinks[imgnum-1]);
-		$('#navigation-count').html((imgnum)+' of '+(imax));
+		$('#navigation-count').html((imgnum)+' <span class="of">of</span> '+(imax));
 	}
 	else if (tomode=='gallery-lightbox')
 	{
 		if (!$('#lightbox-css').length)
 		{
-			$('#gallery-main-photo-photo').css('opacity',0);
-			$('#loading').css('opacity',0);
+			$('.photo').css('opacity',0);
+			$('.loading').css('opacity',0);
 			if (currentmode=='gallery-grid')
 			{
 				$('<link/>', {rel: 'stylesheet', id: 'lightbox-css', href: 'gallery-lightbox.css'}).appendTo('head');
@@ -74,8 +74,8 @@ function changegallerymode(tomode,imgnum)
 			//setTimeout("$('head').append(<link rel='stylesheet' type='text/css' id='lightbox-css' href='gallery-lightbox.css'>)",5000);
 			setTimeout("$('<link/>', {rel: 'stylesheet', id: 'lightbox-css', href: 'gallery-lightbox.css'}).appendTo('head')",400);
 			}
-			setTimeout("$('#gallery-main-photo-photo').css('opacity',1)",1000);
-			setTimeout("$('#loading').css('opacity',1)",1500);
+			setTimeout("$('.photo').css('opacity',1)",1000);
+			setTimeout("$('.loading').css('opacity',1)",1500);
 			$('#gallery-lightbox-button-img').attr('src','img/gallery-lightbox-toggle.png');
 			$('#gallery-lightbox-button').attr('title','Toggle lightbox colour');
 		}
