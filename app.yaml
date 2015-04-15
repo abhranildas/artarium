@@ -27,10 +27,10 @@ handlers:
 - url: /light-on-the-land
   script: main.py
 
-- url: /abhranil-das
+- url: /binayak-dasgupta
   script: main.py
 
-- url: /backpackers-diary
+- url: /urban-colours
   script: main.py
 
 - url: /about

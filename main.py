@@ -49,11 +49,11 @@ application = webapp2.WSGIApplication([
 ('/avishek-roy', artist),
 ('/tejal-akolkar', artist),
 ('/rajesh-bhattacharjee', artist),
-('/abhranil-das', artist),
+('/binayak-dasgupta', artist),
 ('/timeless-terrains', gallery),
 ('/artwork', gallery),
 ('/light-on-the-land', gallery),
-('/backpackers-diary', gallery),
+('/urban-colours', gallery),
 ('/about', about),
 ('/terms', terms)],
 debug=True)
